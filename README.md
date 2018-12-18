@@ -13,6 +13,9 @@ This is a series of blog posts on simulation methods based on a statistics cours
 7. Reversible Jump MCMC
 8. Sequential Importance Sampling
 9. Hidden Markov Models
+10. Stochastic Gradient MCMC
+11. Hamiltonian Monte Carlo
+12. Exact HMC
 
 Each chapter comes with its own exercises and answers. I will be focusing more on computing and implementing the samplers rather than the mathematics. I will be using [F#](https://fsharp.org/) in the answers.
 
