@@ -19,10 +19,6 @@ This is a series of blog posts on simulation methods based on a statistics cours
 
 Each chapter comes with its own exercises and answers. I will be focusing more on computing and implementing the samplers rather than the mathematics. I will be using [F#](https://fsharp.org/) in the answers.
 
-## Why F#?
-
-Because of [Scott Wlaschin](https://fsharpforfunandprofit.com/).
-
 ## Why Did I Decide To Write This?
 
 Some courses are life-changing. This happened to be one of such courses for me. The ASM course made me work intensively on computational statistics, and looking back retrospectively, it undoubtedly set the trajectory of my career and brought me to where I am today. Aside from emotional attachments, the course was good fun and extremely enriching. Therefore, I made it a mission to share it with everyone!
