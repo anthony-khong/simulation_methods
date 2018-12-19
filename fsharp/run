@@ -10,10 +10,6 @@ function dock() {
         -it $1 $@
 }
 
-function install-fsharp-packages() {
-    dock mono .paket/paket.exe install
-}
-
 echo "$@"
 
 $@
