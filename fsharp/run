@@ -1,0 +1,19 @@
+#! /bin/bash
+
+function build-docker() {
+    docker build -f docker/Dockerfile-$1 -t $1 docker
+}
+
+function dock() {
+    docker run --rm -v "$PWD":"/root/simulation_methods" \
+        -w "/root/simulation_methods" \
+        -it $1 $@
+}
+
+function install-fsharp-packages() {
+    dock mono .paket/paket.exe install
+}
+
+echo "$@"
+
+$@

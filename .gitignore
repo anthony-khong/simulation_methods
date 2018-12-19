@@ -1,1 +1,5 @@
 */pdf
+.DS_Store
+
+fsharp/.paket/paket.exe
+fsharp/packages/*
