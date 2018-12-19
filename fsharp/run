@@ -1,13 +1,19 @@
 #! /bin/bash
 
+export TAG_NAME="monte-carlo-fsharp"
+
 function build-docker() {
-    docker build -f docker/Dockerfile-$1 -t $1 docker
+    docker build -f Dockerfile -t $TAG_NAME . $@
 }
 
-function dock() {
-    docker run --rm -v "$PWD":"/root/simulation_methods" \
-        -w "/root/simulation_methods" \
-        -it $1 $@
+function repl() {
+    build-docker >/dev/null
+    docker run --rm -it $TAG_NAME $@
+}
+
+function execute() {
+    build-docker >/dev/null
+    docker run --rm -it $TAG_NAME fsharpi $1
 }
 
 echo "$@"

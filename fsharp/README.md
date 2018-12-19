@@ -1,8 +1,18 @@
 ## Setting Up
 
-1. Build the Docker image with `./run build-docker`.
-2. Install F# packages with `./run dock mono .paket/paket.exe install`.
-3. Run F# REPL with `./run dock fsharpi`.
+Run the F# REPL with:
+
+```bash
+./run repl
+```
+
+Execute an F# script with:
+
+```bash
+./run execute 1-introduction-to-simulation-methods.fsx
+```
+
+It takes around five minutes to run the command for the first time. This is because a fresh Docker image is built.
 
 ## Why F#?
 
