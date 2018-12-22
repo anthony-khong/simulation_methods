@@ -1,0 +1,19 @@
+#! /bin/bash
+
+export TAG_NAME="monte-carlo-clojure"
+
+function build-docker() {
+    docker build -f Dockerfile -t $TAG_NAME . $@
+}
+
+function dock() {
+    docker run --rm -it $TAG_NAME $@
+}
+
+function repl() {
+    dock lein repl
+}
+
+echo "$@"
+
+$@
