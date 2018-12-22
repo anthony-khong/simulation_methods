@@ -17,3 +17,5 @@ It takes around five minutes to run the command for the first time. This is beca
 ## Why F#?
 
 Because of [Scott Wlaschin](https://fsharpforfunandprofit.com/).
+
+If you're still not convinced, check out [why you should learn F#](https://dusted.codes/why-you-should-learn-fsharp).

@@ -6,14 +6,17 @@ function build-docker() {
     docker build -f Dockerfile -t $TAG_NAME . $@
 }
 
+function dock() {
+    # build-docker >/dev/null
+    docker run --network host -P --rm -it $TAG_NAME $@
+}
+
 function repl() {
-    build-docker >/dev/null
-    docker run --rm -it $TAG_NAME $@
+    dock fsharpi
 }
 
 function execute() {
-    build-docker >/dev/null
-    docker run --rm -it $TAG_NAME fsharpi $1
+    dock fsharpi $@
 }
 
 echo "$@"
