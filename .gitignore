@@ -3,3 +3,5 @@
 
 fsharp/.paket/paket.exe
 fsharp/packages/*
+
+clojure/tutorial.clj
