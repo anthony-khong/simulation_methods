@@ -12,6 +12,8 @@ function dock() {
         -e DISPLAY=$IP:0 \
         -v /tmp/.X11-unix:/tmp/.X11-unix \
         -v $HOME/.Xauthority:/root/.Xauthority --net=host \
+        -v $PWD:"/root/simulation_methods" \
+        -w "/root/simulation_methods" \
         --rm -it $TAG_NAME $@
 }
 
