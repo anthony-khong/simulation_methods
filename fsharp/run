@@ -7,8 +7,11 @@ function build-docker() {
 }
 
 function dock() {
-    # build-docker >/dev/null
-    docker run --network host -P --rm -it $TAG_NAME $@
+    docker run \
+        -v $PWD:"/root/simulation_methods" \
+        -w "/root/simulation_methods" \
+        --net=host -P \
+        --rm -it $TAG_NAME $@
 }
 
 function repl() {

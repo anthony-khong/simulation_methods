@@ -1,7 +1,6 @@
 #! /bin/bash
 
 export TAG_NAME="monte-carlo-clojure"
-export IP=$(ifconfig en0 | grep inet | awk '$1=="inet" {print $2}')
 
 function build-docker() {
     docker build -f Dockerfile -t $TAG_NAME . $@
@@ -9,11 +8,9 @@ function build-docker() {
 
 function dock() {
     docker run \
-        -e DISPLAY=$IP:0 \
-        -v /tmp/.X11-unix:/tmp/.X11-unix \
-        -v $HOME/.Xauthority:/root/.Xauthority --net=host \
         -v $PWD:"/root/simulation_methods" \
         -w "/root/simulation_methods" \
+        -p 10666:10666 \
         --rm -it $TAG_NAME $@
 }
 

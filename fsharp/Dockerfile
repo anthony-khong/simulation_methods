@@ -13,3 +13,5 @@ ADD paket.dependencies paket.dependencies
 RUN mono .paket/paket.exe install
 
 ADD *.fsx /root/
+
+EXPOSE 9009
