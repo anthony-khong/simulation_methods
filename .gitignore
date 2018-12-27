@@ -6,3 +6,4 @@ fsharp/packages/*
 
 clojure/tutorial.clj
 clojure/figures/*
+clojure/.rebel_readline_history

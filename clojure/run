@@ -18,6 +18,10 @@ function repl() {
     dock lein repl
 }
 
+function rebl() {
+    dock lein rebl
+}
+
 echo "$@"
 
 $@
