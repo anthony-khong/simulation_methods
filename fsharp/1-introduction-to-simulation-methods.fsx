@@ -1,9 +1,15 @@
 #load "packages/FsLab/FsLab.fsx"
 
-(*#load "packages/MathNet.Numerics.FSharp/MathNet.Numerics.fsx"*)
+open MathNet.Numerics.LinearAlgebra
 
-open MathNet.Numerics
+open MathNet.Numerics.Statistics
 
-printfn "Hello World"
+let xs = DenseVector.randomStandard<float> 10
+
+Statistics.Mean(xs)
+
+Statistics.Variance(xs)
+
+Statistics.percentileFunc xs 99
 
 

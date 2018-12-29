@@ -3,6 +3,7 @@
 
 fsharp/.paket/paket.exe
 fsharp/packages/*
+fsharp/paket.lock
 
 clojure/tutorial.clj
 clojure/figures/*
