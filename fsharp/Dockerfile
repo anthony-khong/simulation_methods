@@ -11,5 +11,3 @@ RUN mkdir .paket && \
 ADD paket.dependencies paket.dependencies
 
 RUN mono .paket/paket.exe install
-
-ADD *.fsx /root/
