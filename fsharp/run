@@ -7,6 +7,7 @@ function build-docker() {
 }
 
 function dock() {
+    build-docker --quiet
     docker run --rm -it \
         -v $PWD:/root \
         $TAG_NAME $@
