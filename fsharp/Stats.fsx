@@ -126,3 +126,7 @@ let dcauchy location scale = cauchy location scale |> density
 let qcauchy location scale =
     let dist = Cauchy(location, scale)
     Vector.map dist.InverseCumulativeDistribution
+
+// Sample Operations
+// TODO: standardise
+

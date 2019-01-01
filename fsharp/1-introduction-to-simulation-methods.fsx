@@ -2,4 +2,5 @@
 
 open Stats
 
-describe (rnorm 10.0 0.1 1000)
+// TODO: question 1 - assure nominal coverage
+describe (rstdNorm 1000)
