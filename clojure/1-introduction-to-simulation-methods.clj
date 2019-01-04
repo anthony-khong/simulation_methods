@@ -10,7 +10,7 @@
 
 (defn quantile-map [xs probs]
   (zipmap probs (quantile xs :probs probs)))
-    
+
 (defn summarise [xs]
   (let [std-xs (standardise xs)]
     {:std-quantiles (quantile-map std-xs [0.025, 0.15, 0.5, 0.85, 0.975])
