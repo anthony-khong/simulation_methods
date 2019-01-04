@@ -1,4 +1,5 @@
 *.pdf
+*.png
 .DS_Store
 
 fsharp/.paket/paket.exe
