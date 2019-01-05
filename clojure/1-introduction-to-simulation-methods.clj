@@ -6,7 +6,7 @@
         sigma (sd xs)]
     (->> xs
          (map #(- % mu))
-         (map #(/ % sigma))))) 
+         (map #(/ % sigma)))))
 
 (defn quantile-map [xs probs]
   (zipmap probs (quantile xs :probs probs)))
@@ -62,7 +62,7 @@
       (assoc :n-rows n-rows)
       (pprint)))
 
-(defn expectation-of-delta [n-x n-y]  
+(defn expectation-of-delta [n-x n-y]
   {:mean (- 1 (* 3 2))
    :std-error (let [var-x (/ 1 n-x)
                     var-y (/ (* 2 (* 3 3)) n-y)]
