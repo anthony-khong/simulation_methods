@@ -1,1 +1,14 @@
-*/pdf
+*.pdf
+*.png
+.DS_Store
+
+fsharp/.paket/paket.exe
+fsharp/packages/*
+fsharp/paket.lock
+fsharp/.mono/*
+fsharp/.cache/*
+
+clojure/tutorial.clj
+clojure/figures/*
+clojure/.rebel_readline_history
+clojure/.#*
