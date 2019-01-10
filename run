@@ -1,0 +1,5 @@
+#! /bin/bash
+
+docker build -f Dockerfile -t build-pdf .
+
+docker run -v $(PWD):/root/simulation_methods build-pdf
