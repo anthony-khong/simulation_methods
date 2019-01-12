@@ -25,6 +25,6 @@ Although the linguae francae of statistics and machine learning are arguably R a
 2. It is also a **functional-first** language, so that **immutability** is the default. Using exclusively pure functions makes sense for this project, because we are dealing solely with mathematical operations.
 3. Finally, it is a **Lisp**. Many would appeal to its homoiconic property and thus its metaprogramming prowess. However, I just think that Lisp is **beautiful**.
 
-In conclusion, why not Clojure?
+I, therefore, concluded: why not Clojure?
 
-![](https://vignette.wikia.nocookie.net/deathbattlefanon/images/1/17/Zoidberg.png/revision/latest?cb=20161220042212)
+![](https://vignette.wikia.nocookie.net/deathbattlefanon/images/1/17/Zoidberg.png/revision/latest?cb=20161220042212 "Why Not Clojure?"){:height="50%" width="50%"}
