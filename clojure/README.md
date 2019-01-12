@@ -27,5 +27,4 @@ Although the linguae francae of statistics and machine learning are arguably R a
 
 I, therefore, concluded: why not Clojure?
 
-<!--![](https://vignette.wikia.nocookie.net/deathbattlefanon/images/1/17/Zoidberg.png/revision/latest?cb=20161220042212 "Why Not Clojure?"){:height="50%" width="50%"}-->
-<img src="https://vignette.wikia.nocookie.net/deathbattlefanon/images/1/17/Zoidberg.png/revision/latest?cb=20161220042212" height="100" />
+<img src="https://vignette.wikia.nocookie.net/deathbattlefanon/images/1/17/Zoidberg.png/revision/latest?cb=20161220042212" height="400" />
