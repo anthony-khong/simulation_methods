@@ -16,12 +16,13 @@ If you come from an OO background, I recommend watching Rich Hickey's [lecture "
 
 ## Introduction to Incanter
 
+[Incanter](https://github.com/incanter/incanter) is the de-facto scientific-computing library for Clojure, and this project relies heavily on it. The [website](http://incanter.org/) contains many examples. This [cheat sheet](http://incanter.org/docs/incanter-cheat-sheet.pdf) can be useful when starting off.
 
 ## Why Clojure?
 
 Although the linguae francae of statistics and machine learning are arguably R and Python, there are a few advantages to Clojure:
 
-1. Clojure is a **dynamically typed** language, which allows for fast and flexible prototyping of samplers.
+1. Clojure is a **dynamically typed** language, which allows for **fast and flexible** prototyping of samplers.
 2. It is also a **functional-first** language, so that **immutability** is the default. Using exclusively pure functions makes sense for this project, because we are dealing solely with mathematical operations.
 3. Finally, it is a **Lisp**. Many would appeal to its homoiconic property and thus its metaprogramming prowess. However, I just think that Lisp is **beautiful**.
 
