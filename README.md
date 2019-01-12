@@ -19,7 +19,13 @@ This is a series of blog posts on simulation methods based on a statistics cours
 
 Each chapter comes with its own exercises and answers. I will be focusing more on computing and implementing the samplers rather than the mathematics. I will be using [Clojure](https://clojure.org/) in the answers. Contributions for other languages are welcomed!
 
+## Who Is This For?
+
+Simulation methods is an indispensable technique for approximating intractable high-dimensional integrals. It is particularly useful for **Bayesian computations**, and as such, many of the examples are drawn from the Bayesian literature. The course is meant to be doable but challenging for people with a basic knowledge of statistics, namely random variables, expectations, central-limit theorem and the law of large numbers. The course is for practitioners, so that the questions at the end of each lecture are effectively programming exercises that consolidate the material discussed in the lecture notes.
+
 ## Creating the PDFs
+
+The lecture notes are written in Markdown format. It is intended to be compiled to PDF using Pandoc. If you already have Pandoc, you can simply compile the Markdown files in their own directory.
 
 [Install Docker](https://docs.docker.com/install/), and simply run the command `./run` in the root directory of the repository.
 
