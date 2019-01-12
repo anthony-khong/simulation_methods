@@ -27,7 +27,7 @@ Simulation methods is an indispensable technique for approximating intractable h
 
 The lecture notes are written in Markdown format. It is intended to be compiled to PDF using Pandoc. If you already have Pandoc, you can simply compile the Markdown files in their own directory.
 
-[Install Docker](https://docs.docker.com/install/), and simply run the command `./run` in the root directory of the repository.
+[Install Docker](https://docs.docker.com/install/), and simply run the command `./run` in the root directory of the repository. **WARNING:** this can take a while, download a lot of data and take up almost 1GB of container size!
 
 ## Why Did I Decide To Write This?
 
