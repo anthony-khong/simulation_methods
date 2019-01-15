@@ -33,7 +33,7 @@ $$
 \quad \text{where } \delta=\dfrac{1}{m^2}
 $$
 
-Now the approximation error is $O(m^{-\frac{1}{2}})$. And in general, we have an approximation error of $O(m^{-\frac{1}{d}})$ in $d$ dimensions. Therefore, in high-dimensional settings, this technique becomes increasingly difficult. **Simulation methods address this problem using Monte Carlo integration**.
+Now the approximation error is $O(m^{-\frac{1}{2}})$. And in general, we have an approximation error of $O(m^{-\frac{1}{d}})$ in $d$ dimensions. Therefore, in high-dimensional settings, this technique becomes increasingly difficult. To achieve a required level of approximation error one is required to evaluate $f(x)$ $n^d$ times which makes this approach impractical from the computational point of view. **Simulation methods address this problem using Monte Carlo integration**.
 
 ## Example: Bayesian Statistics
 
@@ -59,7 +59,7 @@ In this set of exercise questions, we make sure that you have access to a good s
 2. Let $X \sim \mathcal{E}(1)$ and $Y \sim \mathcal{G}(3, 2)$, where $\mathcal{E}$ and $\mathcal{G}$ denote the exponential and gamma distributions respectively. Let $(\bar{X}, \hat{\sigma}^2_X)$ and $(\bar{Y}, \hat{\sigma}^2_Y)$ be the sample mean and variance of $X$ and $Y$ respectively.
 
     * Show that $\hat{\delta} = \bar{X} - \bar{Y}$ is normally distributed as $N_X$ and $N_Y$ become large.
-    * Does $\hat{\delta}$ still converge to normality if $N_X = 2 and $N_Y$ becomes large?
+    * Does $\hat{\delta}$ still converge to normality if $N_X = 2$ and $N_Y$ becomes large?
     * What is the mean and variance of $\hat{\delta}$ as a function of $(N_X, N_Y)$?
 
 3. Let $X \sim \mathcal{C}$, where $\mathcal{C}$ denotes the standard Cauchy distribution.
