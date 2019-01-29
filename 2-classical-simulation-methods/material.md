@@ -54,12 +54,48 @@ Given $U \sim \mathcal{U}(0, 1)$, the variable $Z = F_X^{-}(U) \overset{d}{=} X$
 
 ### Example 3: Correlated Normals
 
+Suppose we have
+
+$$ 
+\begin{pmatrix} X \\ Y \end{pmatrix}
+~ \sim \mathcal{N}\Big(
+\begin{pmatrix} \mu_X \\ \mu_Y \end{pmatrix}
+,
+\begin{pmatrix} \sigma_X^2 & \rho\sigma_{X}\sigma_{Y} \\ \rho\sigma_{X}\sigma_Y & \sigma_Y^2 \end{pmatrix}
+\Big)
+$$
+
+Then we can rely on **sampling via composition** which states that if $X \sim F_X$ and $Y \sim F_{Y | X}$ then $(X, Y) \sim F_{X, Y}$. In this case, we can work out the marginal and conditional exactly:
+
+$$
+X \sim \mathcal{N}(\mu_X, \sigma_X^2)
+\quad
+Y | X \sim \mathcal{N} (\mu_{Y|X}, \sigma_{Y|X}^2 )
+$$
+
+where
+
+$$
+\mu_{Y|X} = \mu_Y + \rho\dfrac{\sigma_{Y}}{\sigma_X}(X - \mu_X)
+\quad
+\sigma_{Y|X}^2 = \sigma_Y^2(1 - \rho^2) 
+$$
+
+Therefore, we can sample X and Y by doing the following
+
+$$
+\begin{aligned}
+X = \mu_X + \sigma_X \Phi^{-1}(U_1) && U_1 \sim \mathcal{U}(0, 1) \\
+Y = \mu_{Y|X} + \sigma_{Y|X} \Phi^{-1}(U_2) && U_2 \sim \mathcal{U}(0, 1) \\
+\end{aligned}
+$$
+
+where $\Phi$ is the standard normal CDF. Note that this is not the most efficient method to sample correlated normal variables. See the [Box-Muller algorithm](https://en.wikipedia.org/wiki/Box%E2%80%93Muller_transform) and [Cholesky decomposition](https://en.wikipedia.org/wiki/Cholesky_decomposition).
+
 ## Transformation Methods
 
 <!--TODO: add reparameterisation trick-->
 <!--TODO: add link to a blog post about the Gumbel trick-->
-
-## Sampling via Composition
 
 ## Rejection Sampling
 
