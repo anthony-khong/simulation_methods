@@ -94,13 +94,31 @@ where $\Phi$ is the standard normal CDF. Note that this is not the most efficien
 
 ## Transformation Methods
 
-<!--TODO: add reparameterisation trick-->
-<!--TODO: add link to a blog post about the Gumbel trick-->
+When we are targeting an $\mathbb{X}$-valued $X \sim F_X$, there may be instances such that we could easily sample a $\mathbb{Y}$-valued $Y \sim F_Y$ and a function $\varphi: \mathbb{Y} \rightarrow \mathbb{X}$ that satisfy $\varphi(Y) \sim F_X$. In fact, this is something that we may routinely do for simulating normal variables, as we have seen in Example 3. Concretely, if we would like to target $X \sim \mathcal{N}(\mu, \sigma^2)$, we can achieve this by sampling $Z \sim \mathcal{N}(0, 1)$ and apply the transformation $\varphi(Z) = \mu + \sigma Z$.
+
+### Example 4: Beta Distribution
+
+Let $X_1 \sim \mathcal{G}(\alpha, 1)$ and $X_2 \sim \mathcal{G}(\beta, 1)$ where $\mathcal{G}$ denotes the gamma distribution. It can be shown that $Y = \dfrac{X_1}{X_1 + X_2}$ will follow $\mathcal{B}(\alpha, \beta)$ where $\mathcal{B}$ denotes the beta distribution.
+
+### Example 5: Poisson Distribution
 
 ## Rejection Sampling
 
-# Exercises
+## Exercises
 
 In this set of exercises, we verify that the techniques outlined in this chapter are correct. To show that a random variable follows a certain distribution, we can draw samples and plot the histogram with the expected PDF overlaid. Alternatively, if the target distribution $\pi$ is known, we can carry out multiple Kolmogorov-Smirnov tests.
 
 1. Verify Example 1. In particular, that $-\dfrac{\log(1 - U)}{\lambda}$ and $-\dfrac{\log(U)}{\lambda}$ both follow $\mathcal{E}(\lambda)$.
+2. If $X \sim F_X$, what is the distribution of $Z = F_X(X)$? Verify this with $X \sim \mathcal{N}(0, 1)$ and $Z = \Phi(X)$.
+
+## Challenging Exercises
+
+In this set of exercises, we examine techniques relevant to this chapter that appear in the wild (i.e. in active research). In particular, the techniques covered below caused some buzz to the machine-learning literature when they were introduced.
+
+### The Reparameterisation Trick
+
+### The Gumbel-Softmax Trick
+
+### The Stick-Breaking Process
+
+## References
