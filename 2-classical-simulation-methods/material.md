@@ -96,9 +96,16 @@ where $\Phi$ is the standard normal CDF. Note that this is not the most efficien
 
 When we are targeting an $\mathbb{X}$-valued $X \sim F_X$, there may be instances such that we could easily sample a $\mathbb{Y}$-valued $Y \sim F_Y$ and a function $\varphi: \mathbb{Y} \rightarrow \mathbb{X}$ that satisfy $\varphi(Y) \sim F_X$. In fact, this is something that we may routinely do for simulating normal variables, as we have seen in Example 3. Concretely, if we would like to target $X \sim \mathcal{N}(\mu, \sigma^2)$, we can achieve this by sampling $Z \sim \mathcal{N}(0, 1)$ and apply the transformation $\varphi(Z) = \mu + \sigma Z$.
 
+For continuous random variables, we can work out the transformed PDF by using the **change-of-variable** technique if we know $\varphi^{-1}$. We have the following:
+
+$$ Y \sim F_Y \quad X = \varphi(Y)$$
+$$ \Rightarrow \pi_X(\boldsymbol x) = \pi_Y(\varphi^{-1}(\boldsymbol x)) \left| \dfrac{d}{d\boldsymbol x}\varphi^{-1}(\boldsymbol x) \right|$$
+
+where $(\pi_X, \pi_Y)$ denotes the PDF of $X$ and $Y$ respectively.
+
 ### Example 4: Beta Distribution
 
-Let $X_1 \sim \mathcal{G}(\alpha, 1)$ and $X_2 \sim \mathcal{G}(\beta, 1)$ where $\mathcal{G}$ denotes the gamma distribution. It can be shown that $Y = \dfrac{X_1}{X_1 + X_2}$ will follow $\mathcal{B}(\alpha, \beta)$ where $\mathcal{B}$ denotes the beta distribution.
+Let $X_1 \sim \mathcal{G}(\alpha, 1)$ and $X_2 \sim \mathcal{G}(\beta, 1)$ where $\mathcal{G}$ denotes the gamma distribution. It can be shown that $Y = \dfrac{X_1}{X_1 + X_2}$ will follow $\mathcal{B}(\alpha, \beta)$ where $\mathcal{B}$ denotes the beta distribution. It is straightforward to prove this using the change-of-variable technique, and it is left for the reader.
 
 ### Example 5: Poisson Distribution
 
