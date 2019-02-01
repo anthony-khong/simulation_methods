@@ -90,7 +90,7 @@ Y = \mu_{Y|X} + \sigma_{Y|X} \Phi^{-1}(U_2) && U_2 \sim \mathcal{U}(0, 1) \\
 \end{aligned}
 $$
 
-where $\Phi$ is the standard normal CDF. Note that this is not the most efficient method to sample correlated normal variables. See the [Box-Muller algorithm](https://en.wikipedia.org/wiki/Box%E2%80%93Muller_transform) and [Cholesky decomposition](https://en.wikipedia.org/wiki/Cholesky_decomposition).
+where $\Phi$ is the standard normal CDF. Note that this is not the most efficient method to sample correlated normal variables. See the [Box-Muller algorithm](https://en.wikipedia.org/wiki/Box%E2%80%93Muller_transform) below and [Cholesky decomposition](https://en.wikipedia.org/wiki/Cholesky_decomposition).
 
 ## Transformation Methods
 
@@ -107,7 +107,40 @@ where $(\pi_X, \pi_Y)$ denotes the PDF of $X$ and $Y$ respectively.
 
 Let $X_1 \sim \mathcal{G}(\alpha, 1)$ and $X_2 \sim \mathcal{G}(\beta, 1)$ where $\mathcal{G}$ denotes the gamma distribution. It can be shown that $Y = \dfrac{X_1}{X_1 + X_2}$ will follow $\mathcal{B}(\alpha, \beta)$ where $\mathcal{B}$ denotes the beta distribution. It is straightforward to prove this using the change-of-variable technique, and it is left for the reader.
 
-### Example 5: Poisson Distribution
+### Example 5: Box-Muller Distribution
+
+Let $U_1 \sim \mathcal{U}(0, 1)$ and $U_2 \sim \mathcal{U}(0, 1)$, then define:
+
+$$
+R = \sqrt{-2 \log(U_1)}, \quad \Theta = 2 \pi U_2
+$$
+
+We can show that 
+
+$$
+\begin{aligned}
+X_1 = R \cos\Theta \sim \mathcal{N}(0, 1) \\
+X_2 = R \sin\Theta \sim \mathcal{N}(0, 1)
+\end{aligned}
+$$
+
+\textbf{Proof.} Following Example 1, we have $R^2 \sim \mathcal{E}\Big(\frac{1}{2}\Big)$ and $\Theta \sim \mathcal{U}(0, 2\pi)$. We can write the joint distribution of $(R^2, \Theta)$ as the following (we drop the subscripts to avoid clutter):
+
+$$
+\begin{aligned}
+\pi(r^2, \theta)
+&= \pi(r^2)\pi(\theta) \\
+&= \Big\{ \dfrac{1}{2} \exp\big( -r^2 / 2 \big) \Big\}\times \Big\{ \dfrac{1}{2} \Big\}
+\end{aligned}
+$$
+
+We can then use the change-of-variable formula with the following mapping:
+
+$$
+\varphi \begin{pmatrix} r^2 \\ \theta \end{pmatrix}
+= \begin{pmatrix} r\cos\theta \\ r\sin\theta \end{pmatrix}
+\Rightarrow
+$$
 
 ## Rejection Sampling
 
