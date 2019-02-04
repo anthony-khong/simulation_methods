@@ -99,7 +99,7 @@ When we are targeting an $\mathbb{X}$-valued $X \sim F_X$, there may be instance
 For continuous random variables, we can work out the transformed PDF by using the **change-of-variable** technique if we know $\varphi^{-1}$. We have the following:
 
 $$ Y \sim F_Y \quad X = \varphi(Y)$$
-$$ \Rightarrow \pi_X(\boldsymbol x) = \pi_Y(\varphi^{-1}(\boldsymbol x)) \left| \dfrac{d}{d\boldsymbol x}\varphi^{-1}(\boldsymbol x) \right|$$
+$$ \Rightarrow \pi_X(\boldsymbol x) = \pi_Y(\varphi^{-1}(\boldsymbol x)) \left| \dfrac{d}{d\boldsymbol x^T}\varphi^{-1}(\boldsymbol x) \right|$$
 
 where $(\pi_X, \pi_Y)$ denotes the PDF of $X$ and $Y$ respectively.
 
@@ -130,7 +130,7 @@ $$
 \begin{aligned}
 \pi(r^2, \theta)
 &= \pi(r^2)\pi(\theta) \\
-&= \Big\{ \dfrac{1}{2} \exp\big( -r^2 / 2 \big) \Big\}\times \Big\{ \dfrac{1}{2} \Big\}
+&= \Big\{ \dfrac{1}{2} \exp\big( -r^2 / 2 \big) \Big\}\times \Big\{ \dfrac{1}{2\pi} \Big\}
 \end{aligned}
 $$
 
@@ -139,8 +139,32 @@ We can then use the change-of-variable formula with the following mapping:
 $$
 \varphi \begin{pmatrix} r^2 \\ \theta \end{pmatrix}
 = \begin{pmatrix} r\cos\theta \\ r\sin\theta \end{pmatrix}
-\Rightarrow
 $$
+
+In particular, we can have an easier time by invoking the inverse function theorem to work out the determinant of the Jacobian:
+
+$$
+\left| \dfrac{\partial \varphi^{-1}}{\partial (x_1 \, x_2)} \right|
+= \left| \dfrac{\partial \varphi}{\partial (r^2 \, \theta)} \right|^{-1}
+= \det
+\begin{pmatrix}
+\dfrac{\cos \theta}{2r} & -r \sin \theta \\
+\dfrac{\sin\theta}{2r} & r \cos\theta \\
+\end{pmatrix} ^{-1}
+= \Big(\dfrac{1}{2}\cos^2\theta + \dfrac{1}{2}\sin^2\theta \Big)^{-1} = 2
+$$
+
+Moreover, notice that $r^2 = x_1^2 + x_2^2$, so that the joint PDF of $(x_1 \, x_2)$ is:
+
+$$
+\begin{aligned}
+\pi(x_1, x_2)
+&= \pi(\varphi^{-1}(x_1, x_2)) \left| \dfrac{\partial \varphi^{-1}}{\partial (x_1 \, x_2)} \right| \\
+&= \dfrac{1}{2\pi} \exp\Big( -\dfrac{x_1^2 + x_2^2}{2} \Big)
+\end{aligned}
+$$
+
+which is the independent standard bivariate normal PDF.
 
 ## Rejection Sampling
 
