@@ -56,7 +56,7 @@ Given $U \sim \mathcal{U}(0, 1)$, the variable $Z = F_X^{-}(U) \overset{d}{=} X$
 
 Suppose we have
 
-$$ 
+$$
 \begin{pmatrix} X \\ Y \end{pmatrix}
 ~ \sim \mathcal{N}\Big(
 \begin{pmatrix} \mu_X \\ \mu_Y \end{pmatrix}
@@ -78,7 +78,7 @@ where
 $$
 \mu_{Y|X} = \mu_Y + \rho\dfrac{\sigma_{Y}}{\sigma_X}(X - \mu_X)
 \quad
-\sigma_{Y|X}^2 = \sigma_Y^2(1 - \rho^2) 
+\sigma_{Y|X}^2 = \sigma_Y^2(1 - \rho^2)
 $$
 
 Therefore, we can sample X and Y by doing the following
@@ -115,7 +115,7 @@ $$
 R = \sqrt{-2 \log(U_1)}, \quad \Theta = 2 \pi U_2
 $$
 
-We can show that 
+We can show that
 
 $$
 \begin{aligned}
@@ -168,12 +168,60 @@ which is the independent standard bivariate normal PDF.
 
 ## Rejection Sampling
 
+The main idea of **rejection sampling** is to use a **proposal distribution** $q$ that approximates the target distribution $\pi$ and is easy to sample from. With some $M > 0$ such that $\pi(x) \leq Mq(x) \,\forall\, x \in \mathbb{X}$, he following procedure generates a draw from $\pi$:
+
+1. Draw $x$ from $q$.
+2. Accept $x$ with probability $\dfrac{\pi(x)}{Mq(x)}$. If $x$ is rejected, go back to step 1.
+
+To show this, consider some measurable set $A$:
+
+$$
+\mathbb{P}(X \in A | \text{Accept } X)
+= \dfrac{\mathbb{P}(X \in A, \text{Accept } X)}{\mathbb{P}(\text{Accept } X)} \\
+$$
+
+where
+
+$$
+\begin{aligned}
+\mathbb{P}(X \in A, \text{Accept } X)
+&= \int_{x \in A}\int_{u \in [0, 1]} 1\Big( u \leq \pi(x) / Mq(x) \Big) q(x) du\,dx \\
+&= \int_{x \in A} \Big\{\int_{u \in [0, 1]} 1\Big( u \leq \pi(x) / Mq(x) \Big) du \Big\} q(x) dx \\
+&= \int_{x \in A} \dfrac{\pi(x)}{Mq(x)} q(x) dx \\
+&= \dfrac{1}{M} \int_{x \in A} \pi(x) dx
+\end{aligned}
+$$
+
+and
+
+$$
+\begin{aligned}
+\mathbb{P}(\text{Accept } X)
+&= \mathbb{P}(X \in \mathbb{X}, \text{Accept } X) \\
+&= \dfrac{1}{M} \quad \text{(Using previous results)}
+\end{aligned}
+$$
+
+Therefore, we have, as required:
+
+$$ \mathbb{P}(X \in A | \text{Accept } X) = \int_{x \in A} \pi(x) dx $$
+
+Note that $M$ determines the probability of acceptance, so that it is in our best interest to find the smallest viable $M$ in order not to waste samples.
+
+### Example 6: Simulating Normal with Cauchy
+
+### Example 7: Genetic Linkage Model
+
 ## Exercises
 
 In this set of exercises, we verify that the techniques outlined in this chapter are correct. To show that a random variable follows a certain distribution, we can draw samples and plot the histogram with the expected PDF overlaid. Alternatively, if the target distribution $\pi$ is known, we can carry out multiple Kolmogorov-Smirnov tests.
 
 1. Verify Example 1. In particular, that $-\dfrac{\log(1 - U)}{\lambda}$ and $-\dfrac{\log(U)}{\lambda}$ both follow $\mathcal{E}(\lambda)$.
 2. If $X \sim F_X$, what is the distribution of $Z = F_X(X)$? Verify this with $X \sim \mathcal{N}(0, 1)$ and $Z = \Phi(X)$.
+3. In the context of rejection sampling, we often only know $\pi$ and $q$ up to a normalising constant:
+   $$ \tilde{\pi}(x) = \dfrac{\pi(x)}{Z_\pi} \quad \tilde{q}(x) = \dfrac{q(x)}{Z_q} $$
+   Show that if we can find $M'$ such that $\dfrac{\tilde{\pi}(x)}{\tilde{q}(x)} \leq M'$ for all $x \in \mathbb{X}$, the rejection sampler is still valid. Following Example 6, find the new bound if $\tilde{\pi}(x) = \exp\big( -\dfrac{x^2}{2} \big)$ and $\tilde{q}(x) = \dfrac{1}{(1 + x^2)}$.
+4. Test
 
 ## Challenging Exercises
 
